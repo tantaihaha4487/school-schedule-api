@@ -470,34 +470,48 @@ const schedule = {
 // Function to get the current day and time in Bangkok timezone
 function getCurrentDayAndTime() {
     const now = moment().tz('Asia/Bangkok');
-    //const day = now.format('dddd');
-    //const time = parseInt(now.format('HHmm'), 10);
+    // const day = now.format('dddd');
+    // const time = parseInt(now.format('HHmm'), 10);
     const day = 'Monday'
-    const time = parseInt(`9200`, 10);
+    const time = parseInt(`0920`, 10);
     return { day, time };
 }
 
+function getCurrentPeriod() {
+  const { day, time } = getCurrentDayAndTime();
+
+  console.log(`day: ${day}, time: ${time}`)
+
+  if (schedule.hasOwnProperty(day)) {
+      const currentSchedule = schedule[day];
+      for (const period of currentSchedule) {
+          const startTime = parseInt(period.start.replace(':', ''), 10);
+          const endTime = parseInt(period.end.replace(':', ''), 10);
+
+          if (time >= startTime && time < endTime) {
+              return period;
+          }
+      }
+        return { message: "No class found"};
+  } else {
+      return {message: 'No schedule available for today'};
+  }
+}
+
+
 // Express route to handle requests
 app.get('/now/', (req, res) => {
-    const { day, time } = getCurrentDayAndTime();
 
-  console.log(day + "" + time)
-  
-    if (schedule.hasOwnProperty(day)) {
-        const currentSchedule = schedule[day];
-        for (const period of currentSchedule) {
-            const startTime = parseInt(period.start.replace(':', ''), 10);
-            const endTime = parseInt(period.end.replace(':', ''), 10);
-          
-            if (time >= startTime && time < endTime) {
-                res.send(period['subject-name']);
-                return;
-            }
-        }
-          res.send('No schedule available for this time')
-    } else {
-        res.send('No schedule available for today');
-    }
+  res.json(getCurrentPeriod());
+    
+});
+app.get('/next/', (req, res) => {
+  const { day } = getCurrentDayAndTime();
+
+  const next = schedule[day].find(current => current.period === getCurrentPeriod().period + 1);
+
+  res.json(next)
+    
 });
 
 // Start the server
