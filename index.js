@@ -465,17 +465,19 @@ const schedule = {
   ],
 };
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-  res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
-
-  if(req.method === "OPTIONS") {
- 
-    return res.status(200).json({});
-  }
-  next();
-})
+    res.setHeader('Access-Control-Allow-Origin', 'https://login-web-front-end.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    if (req.method === 'OPTIONS') {
+        res.status(200).end()
+        return
+      }
+    next();
+});
 
 // Function to get the current day and time in Bangkok timezone
 function getCurrentDayAndTime() {
