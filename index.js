@@ -509,6 +509,11 @@ function getCurrentPeriod() {
 }
 
 // Express route to handle requests
+app.get('/', (req, res) => {
+  res.json(schedule)
+})
+
+
 app.get("/now/", (req, res) => {
   res.json(getCurrentPeriod());
 });
