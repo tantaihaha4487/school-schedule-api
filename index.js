@@ -465,6 +465,18 @@ const schedule = {
   ],
 };
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+
+  if(req.method === "OPTIONS") {
+ 
+    return res.status(200).json({});
+  }
+  next();
+})
+
 // Function to get the current day and time in Bangkok timezone
 function getCurrentDayAndTime() {
   const now = moment().tz("Asia/Bangkok");
