@@ -256,6 +256,97 @@
       "room": 1232,
       "teacher": "ครูอัตรารจ้าง"
     }
-
+  ],
+  "Thursday": [
+    {
+      "period": 0,
+      "start": "08:30",
+      "end": "08:40",
+      "subject-code": "",
+      "subject-name": "Home room",
+      "room": 0,
+      "teacher": ""
+    },
+    {
+      "period": 1,
+      "start": "08:40",
+      "end": "09:30",
+      "subject-code": "อ32102",
+      "subject-name": "เคมี",
+      "room": 311,
+      "teacher": "วาสนา"
+    },
+    {
+      "period": 2,
+      "start": "09:30",
+      "end": "10:20",
+      "subject-code": "ส32104",
+      "subject-name": "เคมี",
+      "room": 311,
+      "teacher": "วาสนา"
+    },
+    {
+      "period": 3,
+      "start": "10:20",
+      "end": "11:10",
+      "subject-code": "ว30203",
+      "subject-name": "ฟิสิกส์",
+      "room": 331,
+      "teacher": "สุปรียา"
+    },
+    {
+      "period": 4,
+      "start": "11:10",
+      "end": "12:00",
+      "subject-code": "ว30203",
+      "subject-name": "ฟิสิกส์",
+      "room": 331,
+      "teacher": "สุปรียา"
+    },
+    {
+      "period": 5,
+      "start": "12:00",
+      "end": "12:50",
+      "subject-code": "-",
+      "subject-name": "พักกลางวัน",
+      "room": 0,
+      "teacher": ""
+    },
+    {
+      "period": 6,
+      "start": "12:50",
+      "end": "13:40",
+      "subject-code": "ว30243",
+      "subject-name": "ชีวะ",
+      "room": 0,
+      "teacher": "ณัฏฐพัชร์"
+    },
+    {
+      "period": 7,
+      "start": "13:40",
+      "end": "14:30",
+      "subject-code": "ว30243",
+      "subject-name": "ชีวะ",
+      "room": 323,
+      "teacher": "ณัฏฐพัชร์"
+    },
+    {
+      "period": 8,
+      "start": "14:30",
+      "end": "15:20",
+      "subject-code": "ค32202",
+      "subject-name": "คณิตศาสตร์เพิ่มเติม",
+      "room": 1232,
+      "teacher": "ตะวัน"
+    },
+    {
+      "period": 9,
+      "start": "15:20",
+      "end": "16:10",
+      "subject-code": "-",
+      "subject-name": "ชุมนุม",
+      "room": 521,
+      "teacher": ""
+    }
   ]
 }
