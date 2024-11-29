@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.get("/now/", (req, res) => {
+app.get("/current/", (req, res) => {
   res.json(getCurrentPeriod());
 });
 app.get("/next/", (req, res) => {
