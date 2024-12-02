@@ -56,8 +56,8 @@ app.get('/', (req, res) => {
   res.json(schedule)
 })
 
-// get current period 
-app.get("/now/", (req, res) => {
+
+app.get("/current/", (req, res) => {
   res.json(getCurrentPeriod());
 });
 
