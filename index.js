@@ -29,6 +29,7 @@ function getCurrentDayAndTime() {
   return { day, time };
 }
 
+// function to get current period based on time
 function getCurrentPeriod() {
   const { day, time } = getCurrentDayAndTime();
 
@@ -55,18 +56,26 @@ app.get('/', (req, res) => {
   res.json(schedule)
 })
 
-
+// get current period 
 app.get("/now/", (req, res) => {
   res.json(getCurrentPeriod());
 });
+
+// get next period
 app.get("/next/", (req, res) => {
   const { day } = getCurrentDayAndTime();
   const next = schedule[day].find(
-    (current) => current.period === getCurrentPeriod().period + 1,
+    (current) => current.period === getCurrentPeriod().period + 1
   );
-
   res.json(next);
 });
+
+
+app.get('/today', (req, res) => {
+  const { day } = getCurrentDayAndTime();
+  res.json(schedule[day])
+})
+
 
 // Start the server
 const port = 3000;
