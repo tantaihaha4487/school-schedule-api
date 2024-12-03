@@ -3,6 +3,7 @@ const moment = require("moment-timezone");
 const app = express();
 
 const schedule = require("./schedule.json"); 
+const { createTableImage, createDayTableImage } = require("./createTableImage");
 
 
 app.use(express.json());
@@ -76,6 +77,21 @@ app.get('/today', (req, res) => {
   res.json(schedule[day])
 })
 
+
+app.get('/table', (req, res) => {
+  createTableImage(schedule).then((buffer) => {
+    res.set('Content-Type', 'image/png');
+    res.send(buffer);
+  });
+})
+
+app.get('/table/today', (req, res) => {
+  const { day } = getCurrentDayAndTime();
+  createDayTableImage(schedule[day]).then((buffer) => {
+    res.set('Content-Type', 'image/png');
+    res.send(buffer);
+  });
+})
 
 // Start the server
 const port = 3000;
