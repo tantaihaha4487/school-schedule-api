@@ -81,7 +81,7 @@ async function createTableImage(schedule) {
     });
   });
 
-  return canvas.toBuffer('image/png');
+  return canvas.toBuffer('image/webp');
 }
 
 async function createDayTableImage(dayschedule) {
@@ -142,6 +142,6 @@ async function createDayTableImage(dayschedule) {
     y += rowHeight;
   });
 
-  return canvas.toBuffer('image/png');
+  return canvas.toBuffer('image/webp');
 }
 module.exports = { createTableImage, createDayTableImage };
