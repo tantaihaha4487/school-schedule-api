@@ -1,5 +1,6 @@
+const { join } = require('path');
 const { createCanvas, GlobalFonts } = require('@napi-rs/canvas');
-GlobalFonts.registerFromPath('./Kanit-ExtraLight.ttf', 'Kanit');
+GlobalFonts.registerFromPath(join(__dirname, 'Kanit-ExtraLight.ttf'), 'Kanit');
 
 async function createTableImage(schedule) {
   const width = 1200;
@@ -86,7 +87,7 @@ async function createTableImage(schedule) {
 
 async function createDayTableImage(dayschedule) {
   const width = 800;
-  const height = 600; // Adjusted for more rows
+  const height = 600;
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
