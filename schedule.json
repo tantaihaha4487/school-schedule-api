@@ -80,6 +80,15 @@
       "subject-name": "คอมพิวเตอร์",
       "room": 521,
       "teacher": "ณัฏฐรุจ"
+    },
+    {
+      "period": 9,
+      "start": "15:20",
+      "end": "16:10",
+      "subject-code": "I30202",
+      "subject-name": "IS",
+      "room": 721,
+      "teacher": "วัศพล"
     }
   ],
   "Tuesday": [
